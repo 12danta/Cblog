@@ -15,9 +15,11 @@ public class Article implements Serializable {
     //文章id
     private Integer articleId;
     //文章题目
-    private String articleTittle;
+    private String articleTitle;
     //文章内容
     private String articleContent;
+    //文章状态
+    private Integer articleStatus;
     //文章摘要
     private String articleSummary;
     //文章浏览量

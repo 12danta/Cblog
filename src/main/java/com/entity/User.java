@@ -24,9 +24,13 @@ public class User implements Serializable{
     private String userEmail;
     //用户权限
     private String userRole;
+    //用户简介
+    private String userBio;
     //用户头像
     private String userAvatar;
     //注册时间
     private Date userRegisterTime;
+    //关于用户
+    private String aboutUser;
 
 }

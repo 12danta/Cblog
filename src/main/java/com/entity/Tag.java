@@ -7,7 +7,7 @@ import java.io.Serializable;
  * tag实体类
  */
 @Data
-public class tag implements Serializable {
+public class Tag implements Serializable {
 
     private static final long serialVersionUID = 3311570148994461661L;
 

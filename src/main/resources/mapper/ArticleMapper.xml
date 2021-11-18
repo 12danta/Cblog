@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.ArticleMapper">
+
+    <sql id="at">article</sql>
+    <sql id="articleMap">articleId,articleTitle,articleContent,articleStatus,
+                        articleSummary,articleViewCount,articleThumbNail,articleUserId,
+                        articleCreateTime,articleUpdateTime</sql>
+    <resultMap id="article" type="com.entity.Article">
+
+    </resultMap>
+
+    <!--统计文章数量-->
+    <select id="countArticle" resultType="Integer">
+        SELECT COUNT(*) FROM
+        <include refid="at"/>
+    </select>
+
+    <!--通过状态统计文章-->
+    <select id="countArticleByStatus" resultType="Integer">
+        SELECT COUNT(*) FROM
+        <include refid="at"/>
+        WHERE articleStatus = #{articleStatus}
+    </select>
+
+    <!--新建文章-->
+    <insert id="createArticle" parameterType="Article" keyProperty="articleId" useGeneratedKeys="true">
+        insert into
+        <include refid="at"/>
+            (articleTitle,
+            articleContent,
+            articleViewCount,
+            articleThumbNail,
+            articleUserId,
+            articleCreateTime,
+            articleUpdateTime,
+            articleSummary,
+            articleStatus)
+            values(#{articleTitle},
+        #{articleContent},
+        #{articleViewCount},
+        #{articleThumbNail},
+        #{articleUserId},
+        #{articleCreateTime},
+        #{articleUpdateTime},
+        #{articleSummary},
+        #{articleStatus})
+    </insert>
+    <!--根据id删除文章-->
+    <delete id="deleteArticleById">e3
+    DELETE FROM
+    <include refid="at"/>
+    WHERE articleId = #{articleId}
+    </delete>
+
+    <!--根据文章状态返回文章列表-->
+    <select id="listArticleByStatus" resultType="Article">
+    SELECT
+    <include refid="articleMap"></include>
+    FROM
+    <include refid="at"/>
+    WHERE articleStatus = #{articleStatus}
+    </select>
+
+    <!--根据文章id查找文章-->
+    <select id="selectArticleById" resultType="Article">
+        SELECT
+        <include refid="articleMap"></include>
+        FROM
+        <include refid="at"/>
+        WHERE articleId = #{articleId}
+    </select>
+
+    <!--更新文章-->
+    <update id="updateArticle" parameterType="Article">
+    update
+    <include refid="at"/>
+    <set>
+        <if test="articleId!=null">articleId = #{articleId},</if>
+        <if test="articleTitle!=null">articleTitle = #{articleTitle},</if>
+        <if test="articleContent!=null">articleContent = #{articleContent},</if>
+        <if test="articleStatus!=null">articleStatus = #{articleStatus},</if>
+        <if test="articleSummary!=null">articleSummary = #{articleSummary},</if>
+        <if test="articleViewCount!=null">articleViewCount = #{articleViewCount},</if>
+        <if test="articleThumbNail!=null">articleThumbNail = #{articleThumbNail},</if>
+        <if test="articleUserId!=null">articleUserId = #{articleUserId},</if>
+        <if test="articleCreateTime!=null">articleCreateTime = #{articleCreateTime},</if>
+        <if test="articleUpdateTime!=null">articleUpdateTime = #{articleUpdateTime},</if>
+    </set>
+    WHERE articleId = #{articleId}
+    </update>
+
+
+</mapper>
