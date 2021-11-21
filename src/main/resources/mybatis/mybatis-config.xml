@@ -19,6 +19,12 @@
 
         <typeAliases>
             <typeAlias alias="Article" type="com.entity.Article"/>
+            <typeAlias alias="Comment" type="com.entity.Comment"/>
+            <typeAlias alias="Tag" type="com.entity.Tag"/>
+            <typeAlias alias="User" type="com.entity.User"/>
+            <typeAlias alias="Link" type="com.entity.Link"/>
+            <typeAlias alias="Message" type="com.entity.Message"/>
+            <typeAlias alias="tagArticle" type="com.entity.Tag_Article"/>
         </typeAliases>
 
 </configuration>

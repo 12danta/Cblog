@@ -13,7 +13,9 @@ public class Comment implements Serializable {
 
     private static final long serialVersionUID = 4145191340211936448L;
     //评论id
-    private Integer commentID;
+    private Integer commentId;
+    //上级评论id
+    private Integer preCommentId;
     //评论内容
     private String commentContent;
     //评论用户id

@@ -47,7 +47,7 @@
         #{articleStatus})
     </insert>
     <!--根据id删除文章-->
-    <delete id="deleteArticleById">e3
+    <delete id="deleteArticleById">
     DELETE FROM
     <include refid="at"/>
     WHERE articleId = #{articleId}
@@ -56,7 +56,7 @@
     <!--根据文章状态返回文章列表-->
     <select id="listArticleByStatus" resultType="Article">
     SELECT
-    <include refid="articleMap"></include>
+    <include refid="articleMap"/>
     FROM
     <include refid="at"/>
     WHERE articleStatus = #{articleStatus}

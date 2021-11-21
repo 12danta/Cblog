@@ -1,6 +1,7 @@
 package com.mapper;
 
 import com.entity.Article;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -44,7 +45,7 @@ public interface ArticleMapper {
      * @param status
      * @return 文章列表
      */
-    List<Article> listArticleByStatus(Integer status);
+    List<Article> listArticleByStatus(@Param(value = "articleStatus") Integer status);
 
     /**
      * 根据文章id查找文章

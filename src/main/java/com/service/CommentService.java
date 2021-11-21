@@ -1,16 +1,18 @@
-package com.mapper;
+package com.service;
 
 import com.entity.Comment;
 
 import java.util.List;
 
-public interface CommentMapper {
+public interface CommentService {
+
     /**
-     * 根据id查找评论
+     *根据评论id查找评论
      * @param commentId
-     * @return
+     * @return 评论内容
      */
     Comment selectCommentById(Integer commentId);
+
 
     /**
      *添加评论
@@ -37,4 +39,5 @@ public interface CommentMapper {
      * @return
      */
     List<Comment> listCommentByUser(Integer userId);
+
 }
