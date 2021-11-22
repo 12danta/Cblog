@@ -1,10 +1,8 @@
-package com.mapper;
+package com.service;
 
 import com.entity.User;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public interface UserMapper {
+public interface UserService {
     /**
      * 添加用户
      * @param user
@@ -27,6 +25,4 @@ public interface UserMapper {
      * @param user
      */
     void updateUser(User user);
-
-
 }
