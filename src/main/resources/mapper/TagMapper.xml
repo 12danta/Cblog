@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.TagMapper">
+
+    <sql id="tagt">Tag</sql>
+    <!--根据tagId查找tag-->
+    <select id="selectTagById" resultType="Tag">
+        SELECT tagId,tagName
+        FROM
+        <include refid="tagt"/>
+        WHERE tagId = #{tagId}
+    </select>
+
+    <!--添加tag-->
+    <insert id="InsertTag">
+        INSERT INTO
+        <include refid="tagt"/>
+        (tagName) VALUES (#{tagName})
+    </insert>
+
+    <!--根据id删除tag-->
+    <delete id="deleteTag">
+        DELETE FROM
+        <include refid="tagt"/>
+        WHERE tagId = #{tagId}
+    </delete>
+
+</mapper>
