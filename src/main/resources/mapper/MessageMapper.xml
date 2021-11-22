@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.MessageMapper">
+    <sql id="mt">Message</sql>
+    <sql id="messageMap">preMessageId,messageContent,messageCreateTime,
+                        messageUserId,messageToUserId</sql>
+
+    <!--根据id查询留言-->
+    <select id="selectMessageById" resultType="Message">
+        SELECT
+        <include refid="messageMap"/>
+        FROM
+        <include refid="mt"/>
+        WHERE
+        messageId = #{messageId}
+    </select>
+    <!--根据用户获取留言列表-->
+    <select id="listMessageByUser" resultType="Message">
+        SELECT
+        <include refid="messageMap"/>
+        FROM
+        <include refid="mt"/>
+        WHERE
+        messageUserId = #{messageUserId}
+    </select>
+    <!--根据id删除留言-->
+    <delete id="deleteMessageById">
+        DELETE FROM
+        <include refid="mt"/>
+        WHERE
+        messageId = #{messageId}
+    </delete>
+    <!--增加留言-->
+    <insert id="insertMessage" parameterType="Message" keyProperty="messageId">
+        INSERT INTO
+        <include refid="mt"/>
+        (<include refid="messageMap"/>)
+        VALUES
+        (#{preMessageId},#{messageContent},#{messageCreateTime},
+            #{messageUserId},#{messageToUserId})
+    </insert>
+</mapper>

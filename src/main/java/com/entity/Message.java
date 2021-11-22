@@ -12,11 +12,15 @@ public class Message implements Serializable {
 
     //留言id
     private int messageId;
+    //上一条留言id
+    private int preMessageId;
     //留言内容
     private String messageContent;
     //留言创建时间
     private Date messageCreateTime;
     //留言用户id
     private int messageUserId;
+    //留言处用户id
+    private int messageToUserId;
 
 }

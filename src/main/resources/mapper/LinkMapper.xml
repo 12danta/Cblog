@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.LinkMapper">
+    <sql id="lt">Link</sql>
+    <sql id="linkMap">linkType,linkCoin,
+                        linkContent,linkUserId</sql>
+    <!--根据id获取连接-->
+    <select id="selectLinkById" resultType="Link">
+        SELECT
+        <include refid="linkMap"/>
+        FROM
+        <include refid="lt"/>
+        WHERE
+        linkId = #{linkId}
+    </select>
+    <!--根据用户连接获取连接集合-->
+    <select id="listLinkByUserId" resultType="Link">
+        SELECT
+        <include refid="linkMap"/>
+        FROM
+        <include refid="lt"/>
+        WHERE
+        linkUserId = #{linkUserId}
+    </select>
+    <!--添加link-->
+    <insert id="insertLink">
+        INSERT into
+        <include refid="lt"/>
+        (<include refid="linkMap"/>)
+        VALUES
+        (#{linkType},#{linkCoin},
+            #{linkContent},#{linkUserId})
+    </insert>
+    <!--根据id删除link-->
+    <delete id="deleteLink">
+        DELETE FROM
+        <include refid="lt"/>
+        WHERE
+        linkId = #{linkId}
+    </delete>
+    <!--修改link内容-->
+    <update id="updateLink" keyProperty="linkId" parameterType="Link">
+        UPDATE
+        <include refid="lt"/>
+        <set>
+            <if test="linkType!=null">linkType = #{linkType}</if>
+            <if test="linkCoin!=null">linkCoin = #{linkCoin}</if>
+            <if test="linkContent!=null">linkContent = #{linkContent}</if>
+            <if test="linkUserId!=null">linkUserId = #{linkUserId}</if>
+        </set>
+    </update>
+</mapper>
