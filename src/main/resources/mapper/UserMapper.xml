@@ -8,7 +8,7 @@
             userAvatar,userRegisterTime,aboutUser</sql>
 
     <!--添加用户-->
-    <insert id="insertUser" parameterType="User" >
+    <insert id="insertUser" parameterType="User" keyProperty="userId" useGeneratedKeys="true">
         INSERT INTO
         <include refid="ut"/>
         (<include refid="userMap"/>)
@@ -35,7 +35,7 @@
     </select>
 
     <!--更新用户-->
-    <update id="updateUser" parameterType="User" keyProperty="userId">
+    <update id="updateUser" parameterType="User" keyProperty="userId" useGeneratedKeys="true">
         UPDATE
         <include refid="ut"/>
         <set>

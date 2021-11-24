@@ -30,5 +30,5 @@ public interface MessageMapper {
      * 增加留言
      * @param message
      */
-    void insertMessage(Message message);
+    Integer insertMessage(Message message);
 }

@@ -13,7 +13,7 @@ public interface ArticleMapper {
      * @param article 文章
      * @return
      */
-    void createArticle(Article article);
+    Integer createArticle(Article article);
 
     /**
      * 根据文章id删除文章
@@ -27,7 +27,7 @@ public interface ArticleMapper {
      * @param article 文章id
      * @return  行数
      */
-    void updateArticle(Article article);
+    Integer updateArticle(Article article);
 
     /**
      * 统计文章数量

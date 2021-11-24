@@ -39,7 +39,7 @@
         linkId = #{linkId}
     </delete>
     <!--修改link内容-->
-    <update id="updateLink" keyProperty="linkId" parameterType="Link">
+    <update id="updateLink" keyProperty="linkId" parameterType="Link" useGeneratedKeys="true">
         UPDATE
         <include refid="lt"/>
         <set>

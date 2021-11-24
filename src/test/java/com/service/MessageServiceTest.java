@@ -35,8 +35,8 @@ public class MessageServiceTest extends basetest {
     public void insertMessage(){
         Message message = new Message();
         message.setMessageContent("留言测试");
-        message.setPreMessageId(1);
-        message.setMessageUserId(1);
+        message.setPreMessageId(2);
+        message.setMessageUserId(2);
         message.setMessageToUserId(23);
         message.setMessageCreateTime(new Date());
         messageService.insertMessage(message);

@@ -17,7 +17,7 @@ public interface CommentMapper {
      *添加评论
      * @param comment
      */
-    void insertComment(Comment comment);
+    Integer insertComment(Comment comment);
 
     /**
      *根据id删除评论

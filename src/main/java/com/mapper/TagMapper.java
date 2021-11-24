@@ -15,7 +15,7 @@ public interface TagMapper {
      * 添加tag
      * @param tag
      */
-    void InsertTag(Tag tag);
+    Integer InsertTag(Tag tag);
 
     /**
      * 根据tagId删除tag

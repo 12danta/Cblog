@@ -31,7 +31,7 @@
         messageId = #{messageId}
     </delete>
     <!--增加留言-->
-    <insert id="insertMessage" parameterType="Message" keyProperty="messageId">
+    <insert id="insertMessage" parameterType="Message" keyProperty="messageId" useGeneratedKeys="true">
         INSERT INTO
         <include refid="mt"/>
         (<include refid="messageMap"/>)

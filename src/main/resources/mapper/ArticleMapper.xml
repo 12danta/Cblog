@@ -72,7 +72,7 @@
     </select>
 
     <!--更新文章-->
-    <update id="updateArticle" parameterType="Article">
+    <update id="updateArticle" parameterType="Article" keyProperty="articleId" useGeneratedKeys="true">
     update
     <include refid="at"/>
     <set>

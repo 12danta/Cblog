@@ -9,7 +9,7 @@ public interface UserMapper {
      * 添加用户
      * @param user
      */
-    void insertUser(User user);
+    Integer insertUser(User user);
 
     /**
      * 根据id删除用户
@@ -26,7 +26,7 @@ public interface UserMapper {
      * 修改用户
      * @param user
      */
-    void updateUser(User user);
+    Integer updateUser(User user);
 
 
 }

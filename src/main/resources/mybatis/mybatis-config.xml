@@ -8,7 +8,9 @@
     <!-- 全局配置 -->
     <settings>
         <!--开启自动驼峰命名规则映射-->
+
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
     </settings>
 
 <!--    <plugins>-->

@@ -25,7 +25,7 @@ public interface LinkMapper {
      * 添加link
      * @param link
      */
-    void insertLink(Link link);
+    Integer insertLink(Link link);
     /**
      * 根据id删除link
      * @param linkId
@@ -35,5 +35,5 @@ public interface LinkMapper {
      * 修改link内容
      * @param link
      */
-    void updateLink(Link link);
+    Integer updateLink(Link link);
 }

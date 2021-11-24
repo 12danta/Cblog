@@ -12,7 +12,7 @@
     </select>
 
     <!--添加tag-->
-    <insert id="InsertTag">
+    <insert id="InsertTag" useGeneratedKeys="true" keyProperty="tagId">
         INSERT INTO
         <include refid="tagt"/>
         (tagName) VALUES (#{tagName})

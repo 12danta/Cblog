@@ -19,7 +19,7 @@
         commentId = #{commentId}
     </select>
     <!--添加评论-->
-    <insert id="insertComment" parameterType="Comment" keyProperty="CommentId">
+    <insert id="insertComment" parameterType="Comment" keyProperty="CommentId" useGeneratedKeys="true">
         insert into
         <include refid="ct"/>
         (
