@@ -5,6 +5,7 @@ import com.mapper.LinkMapper;
 import com.service.LinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,16 +25,19 @@ public class LinkServiceImpl implements LinkService {
         return linkMapper.listLinkByUserId(userId);
     }
 
+    @Transactional(noRollbackFor = Exception.class)
     @Override
     public void insertLink(Link link) {
         linkMapper.insertLink(link);
     }
 
+    @Transactional(noRollbackFor = Exception.class)
     @Override
     public void deleteLink(Integer linkId) {
         linkMapper.deleteLink(linkId);
     }
 
+    @Transactional(noRollbackFor = Exception.class)
     @Override
     public void updateLink(Link link) {
         linkMapper.updateLink(link);

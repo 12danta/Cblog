@@ -5,6 +5,7 @@ import com.mapper.ArticleMapper;
 import com.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -25,13 +26,13 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.countArticleByStatus(status);
     }
 
-    //添加事务管理
+    @Transactional(noRollbackFor = Exception.class)
     @Override
     public void createArticle(Article article) {
         articleMapper.createArticle(article);
     }
 
-    //添加事务管理
+    @Transactional(noRollbackFor = Exception.class)
     @Override
     public void deleteArticle(Integer articleId) {
         //删除文章
@@ -41,7 +42,7 @@ public class ArticleServiceImpl implements ArticleService {
         //删除文章分类
     }
 
-    //添加事务管理
+    @Transactional(noRollbackFor = Exception.class)
     @Override
     public void UpdateArticle(Article article) {
 

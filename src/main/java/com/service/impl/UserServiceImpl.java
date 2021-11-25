@@ -5,6 +5,7 @@ import com.mapper.UserMapper;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -13,11 +14,13 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
+    @Transactional(noRollbackFor = Exception.class)
     public void insertUser(User user) {
         userMapper.insertUser(user);
     }
 
     @Override
+    @Transactional(noRollbackFor = Exception.class)
     public void deleteUserById(Integer userId) {
         userMapper.deleteUserById(userId);
     }
@@ -28,6 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(noRollbackFor = Exception.class)
     public void updateUser(User user) {
         userMapper.updateUser(user);
     }

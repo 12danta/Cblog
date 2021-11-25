@@ -5,6 +5,7 @@ import com.mapper.TagMapper;
 import com.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TagServiceImpl implements TagService {
@@ -18,11 +19,13 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    @Transactional(noRollbackFor = Exception.class)
     public void InsertTag(Tag tag) {
         tagMapper.InsertTag(tag);
     }
 
     @Override
+    @Transactional(noRollbackFor = Exception.class)
     public void deleteTag(Integer tagId) {
         tagMapper.deleteTag(tagId);
     }
