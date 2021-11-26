@@ -26,14 +26,16 @@ public class MessageServiceImpl implements MessageService {
 
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteMessageById(Integer messageId) {
         messageMapper.deleteMessageById(messageId);
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void insertMessage(Message message) {
         messageMapper.insertMessage(message);
     }

@@ -20,25 +20,29 @@ public class LinkServiceImpl implements LinkService {
         return linkMapper.selectLinkById(linkId);
     }
 
+
     @Override
     public List<Link> listLinkByUserId(Integer userId) {
         return linkMapper.listLinkByUserId(userId);
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void insertLink(Link link) {
         linkMapper.insertLink(link);
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteLink(Integer linkId) {
         linkMapper.deleteLink(linkId);
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void updateLink(Link link) {
         linkMapper.updateLink(link);
     }

@@ -19,13 +19,13 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    @Transactional(noRollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void InsertTag(Tag tag) {
         tagMapper.InsertTag(tag);
     }
 
     @Override
-    @Transactional(noRollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void deleteTag(Integer tagId) {
         tagMapper.deleteTag(tagId);
     }

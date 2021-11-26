@@ -2,6 +2,8 @@ package com.service.impl;
 
 import com.entity.Article;
 import com.mapper.ArticleMapper;
+import com.mapper.CommentMapper;
+import com.mapper.TagMapper;
 import com.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     private ArticleMapper articleMapper;
+    private CommentMapper commentMapper;
+    private TagMapper tagMapper;
 
     @Override
     public Integer countArticle() {
@@ -26,24 +30,35 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.countArticleByStatus(status);
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+//    @Transactional(rollbackFor = Exception.class)
     public void createArticle(Article article) {
+        //添加文章
+        article.setArticleCreateTime(new Date());
+        article.setArticleCreateTime(new Date());
         articleMapper.createArticle(article);
+        //添加分类
+
+        //添加tag
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteArticle(Integer articleId) {
         //删除文章
         articleMapper.deleteArticleById(articleId);
         //删除文章评论
+
         //删除文章标签
+
         //删除文章分类
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void UpdateArticle(Article article) {
 
         article.setArticleUpdateTime(new Date());

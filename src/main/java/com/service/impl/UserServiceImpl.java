@@ -14,13 +14,13 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    @Transactional(noRollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void insertUser(User user) {
         userMapper.insertUser(user);
     }
 
     @Override
-    @Transactional(noRollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void deleteUserById(Integer userId) {
         userMapper.deleteUserById(userId);
     }
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(noRollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void updateUser(User user) {
         userMapper.updateUser(user);
     }

@@ -21,14 +21,16 @@ public class CommentServiceImpl implements CommentService {
         return commentMapper.selectCommentById(commentId);
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void insertComment(Comment comment) {
         commentMapper.insertComment(comment);
     }
 
-    @Transactional(noRollbackFor = Exception.class)
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteCommentById(Integer commentId) {
         commentMapper.deleteCommentById(commentId);
     }
